@@ -8,11 +8,10 @@ class Program
         static void Menu()
         {
             bool stop = false;
-            Prompt prompt = new Prompt();
-            Journal journal = new Journal();
 
             while (stop == false)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Please Choose an option: ");
                 Console.WriteLine("");
                 Console.WriteLine("1. Write a New Journal Entry");
@@ -20,26 +19,31 @@ class Program
                 Console.WriteLine("3. Save Your Journal to a File");
                 Console.WriteLine("4. Load Journal From a File");
                 Console.WriteLine("5. Quit");
-
+                Console.Write(">");
                 int selection = Int32.Parse(Console.ReadLine());
 
                 switch (selection)
                 {
                     case 1:
-                        string[] response = prompt.Display();
-                        journal.Save(response);
+                        string[] response = Prompt.Decide();
+                        Journal.Save(response);
                         break;
                     case 2:
-                        journal.Display();
+                        Journal.Display();
                         break;
                     case 3:
-                        journal.SaveFile();
+                        Journal.SaveFile();
                         break;
                     case 4:
-                        journal.Load();
+                        Journal.Load();
                         break;
                     case 5:
-                        Console.WriteLine("Goodbye...");
+                        Console.WriteLine("Do you want to save before Quitting?(Y/N): ");
+                        string save = Console.ReadLine().ToLower();
+                        if (save.CompareTo("y") == 0)
+                        {
+                            Journal.SaveFile();
+                        }
                         stop = true;
                         break;
                     default:

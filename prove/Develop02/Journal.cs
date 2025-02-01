@@ -3,25 +3,29 @@ using System.IO;
 
 public class Journal
 {
-    public List<string[]> _entries = new List<string[]>();
-    public string filePath;
-    public void Save(string[] entry)
+    public static List<string[]> _entries = new List<string[]>();
+
+    public static void Save(string[] entry)
     {
         _entries.Add(entry);
     }
 
-    public void Display()
+    public static void Display()
     {
         foreach (string[] entry in _entries)
         {
-            Console.WriteLine($"{entry[0]} -- {entry[1]}");
+            Console.WriteLine($"{entry[0]} - Prompt:{entry[1]}");
+            Console.WriteLine(entry[2]);
         }
     }
 
-    public void Load()
+    public static void Load()
     {
-        string filePath = "testFile.csv";
-        string[] lines = System.IO.File.ReadAllLines(filePath);
+        _entries.Clear();
+
+        Console.Write("What is the file name?: ");
+        string filePath = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines($"files/{filePath}");
 
         foreach (string line in lines)
         {
@@ -31,15 +35,17 @@ public class Journal
         Console.WriteLine("File is Loaded");
     }
 
-    public void SaveFile()
+    public static void SaveFile()
     {
-        string fileName = "testFile.csv";
+        Console.Write("What is the file name?: ");
+        string fileName = Console.ReadLine();
 
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        using (StreamWriter outputFile = new StreamWriter($"files/{fileName}"))
         {
             foreach (string[] entry in _entries)
             {
-                outputFile.WriteLine(entry[0], entry[1]);
+                string line = entry[0] + "," + entry[1] + "," + entry[2];
+                outputFile.WriteLine(line);
             }
         }
         Console.WriteLine("File Saved.");
