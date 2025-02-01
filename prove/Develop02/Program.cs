@@ -58,4 +58,8 @@ class Program
         Menu();
 
     }
+
+    // "Above and Beyond: I made it so the file actually saves."
+    // "I also added in better logic to decide if a new entry should go onto an existing journal, or start a new journal"
+    // "Adding an option to save when you choose 'QUIT' so that you don't accidentally quit and lose your work"
 }
