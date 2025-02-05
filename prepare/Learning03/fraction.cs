@@ -52,7 +52,7 @@ public class Fraction
     {
         int top = _numerator;
         int bottom = _denomenator;
-        double dec = top / bottom;
+        double dec = (double)top / bottom;
         return dec;
     }
 }
