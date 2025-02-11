@@ -1,8 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
+
 public class Prompt
 {
     public static List<string> _prompts = ["What was the best thing that happened today?", "Who was someone interesting that you met today?", "What is something you are grateful for today?", "What is the kindest thing that you saw someone do today?", "What is something that you did for fun today?"];
 
-    public static string[] Decide()
+    public static Entry Decide()
     {
         Console.WriteLine("Would you like to: ");
         Console.WriteLine();
@@ -22,31 +25,28 @@ public class Prompt
         if (response == "1")
         {
             Journal.Load();
-            return CreateEntry();
+            return Display();
         }
         else if (response == "2")
         {
-            return CreateEntry();
+            return Display();
         }
         else
         {
-            string[] blank = Array.Empty<string>();
-            return blank;
+            return null;
         }
     }
-    public static string[] CreateEntry()
+    public static Entry Display()
     {
-        string[] newEntry = new string[3];
         string date = DateTime.Now.ToString("MM/dd/yyyy h:mm");
         Random r = new Random();
         int randInt = r.Next(0, 4);
         string prompt = _prompts[randInt];
         Console.WriteLine(prompt);
         Console.Write("Your Response: ");
-        string response = Console.ReadLine();
-        newEntry[0] = date;
-        newEntry[1] = prompt;
-        newEntry[2] = response;
-        return newEntry;
+        string input = Console.ReadLine();
+        Entry entry = new Entry(input, date, prompt);
+
+        return entry;
     }
 }

@@ -3,19 +3,18 @@ using System.IO;
 
 public class Journal
 {
-    public static List<string[]> _entries = new List<string[]>();
+    public static List<Entry> _entries = new List<Entry>();
 
-    public static void Save(string[] entry)
+    public static void Save(Entry entry)
     {
         _entries.Add(entry);
     }
 
     public static void Display()
     {
-        foreach (string[] entry in _entries)
+        foreach (Entry entry in _entries)
         {
-            Console.WriteLine($"{entry[0]} - Prompt:{entry[1]}");
-            Console.WriteLine(entry[2]);
+            entry.Display();
         }
     }
 
@@ -29,7 +28,8 @@ public class Journal
 
         foreach (string line in lines)
         {
-            string[] entry = line.Split(",");
+            string[] data = line.Split(",");
+            Entry entry = new Entry(data[0], data[1], data[2]);
             Save(entry);
         }
         Console.WriteLine("File is Loaded");
@@ -42,10 +42,9 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter($"files/{fileName}"))
         {
-            foreach (string[] entry in _entries)
+            foreach (Entry entry in _entries)
             {
-                string line = entry[0] + "," + entry[1] + "," + entry[2];
-                outputFile.WriteLine(line);
+                outputFile.WriteLine(entry.Format());
             }
         }
         Console.WriteLine("File Saved.");
