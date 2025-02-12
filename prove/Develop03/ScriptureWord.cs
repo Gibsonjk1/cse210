@@ -1,12 +1,12 @@
 public class ScriptureWord
 {
-    string _word
+    string _word;
 
-    public class ScriptureWord()
+    public ScriptureWord()
     {
         //Do Something. In what instance would I create a ScriptureWord without passing a string?
     }
-    public class ScriptureWord(string word)
+    public ScriptureWord(string word)
     {
         _word = word;
     }
@@ -15,20 +15,20 @@ public class ScriptureWord
     {
         return _word;
     }
-    public string SetWord(string word);
+    public void SetWord(string word)
     {
         _word = word;
     }
-public string HideWord()
-{
-    int length = _word.Length;
-    string hidden = "";
-
-    for (int i = 0; i <= length; i++)
+    public string HideWord()
     {
-        hidden = hidden + "_ "
-        }
+        int length = _word.Length;
+        string hidden = "";
 
-    return hidden;
-}
+        for (int i = 0; i <= length; i++)
+        {
+            hidden = hidden + "_ "
+            }
+
+        return hidden;
+    }
 }
