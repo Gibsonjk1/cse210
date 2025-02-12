@@ -1,8 +1,8 @@
 public class Entry
 {
-    private static string _entry;
-    private static string _date;
-    private static string _prompt;
+    private string _entry;
+    private string _date;
+    private string _prompt;
 
     public Entry(string entry, string date, string prompt)
     {
@@ -12,13 +12,13 @@ public class Entry
     }
     public string Format()
     {
-        string line = $"{_date} + ',' + {_prompt} + ',' + {_entry}";
+        string line = $"{_entry}~|~{_date}~|~{_prompt}";
         return line;
     }
 
     public void Display()
     {
-        Console.WriteLine($"{_date} - Prompt:{_prompt}");
+        Console.WriteLine($"{_date} - Prompt: {_prompt}");
         Console.WriteLine(_entry);
     }
 

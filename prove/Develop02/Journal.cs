@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 
@@ -10,6 +11,10 @@ public class Journal
         _entries.Add(entry);
     }
 
+    public static int Count()
+    {
+        return _entries.Count;
+    }
     public static void Display()
     {
         foreach (Entry entry in _entries)
@@ -25,10 +30,9 @@ public class Journal
         Console.Write("What is the file name?: ");
         string filePath = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines($"files/{filePath}");
-
         foreach (string line in lines)
         {
-            string[] data = line.Split(",");
+            string[] data = line.Split("~|~");
             Entry entry = new Entry(data[0], data[1], data[2]);
             Save(entry);
         }

@@ -7,12 +7,19 @@ public class Prompt
 
     public static Entry Decide()
     {
-        Console.WriteLine("Would you like to: ");
-        Console.WriteLine();
-        Console.WriteLine("1. Add to an existing Journal");
-        Console.WriteLine("2. Start a new Journal");
-        Console.Write(">");
         string response = "";
+        if (Journal.Count() < 1)
+        {
+            Console.WriteLine("Would you like to: ");
+            Console.WriteLine();
+            Console.WriteLine("1. Add to an existing Journal");
+            Console.WriteLine("2. Start a new Journal");
+            Console.Write(">");
+        }
+        else
+        {
+            return Display();
+        }
 
         while (response != "1" && response != "2" && response != "3")
         {
