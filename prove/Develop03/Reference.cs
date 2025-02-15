@@ -1,10 +1,5 @@
-using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using System.Collections.Generic;
-using System.Text.Json.Nodes;
 using Newtonsoft.Json;
-using System.Xml.Schema;
 public class Reference
 {
     private string _book;
