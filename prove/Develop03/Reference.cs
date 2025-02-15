@@ -7,14 +7,14 @@ using Newtonsoft.Json;
 using System.Xml.Schema;
 public class Reference
 {
-    string _book;
-    int _chapter;
-    int _firstVerse;
-    int _lastVerse;
-    string _text;
-    string _reference;
-    string _url;
-    string _urlEnd;
+    private string _book;
+    private int _chapter;
+    private int _firstVerse;
+    private int _lastVerse;
+    private string _text;
+    private string _reference;
+    private string _url;
+    private string _urlEnd;
     HttpClient _client = new HttpClient();
 
     public Reference()
@@ -38,7 +38,7 @@ public class Reference
         _url = $"https://api.nephi.org/scriptures/?q={_urlEnd}";
         GetScripture(_url);
     }
-    public void GetScripture(string url)
+    private void GetScripture(string url)
     {
         _client.BaseAddress = new Uri(_url);
         _client.DefaultRequestHeaders.Accept.Clear();
