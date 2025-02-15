@@ -35,9 +35,9 @@ public class ScriptureWord
         int length = _word.Length;
         string hidden = "";
 
-        for (int i = 0; i <= length; i++)
+        for (int i = 0; i < length; i++)
         {
-            hidden = hidden + "_ ";
+            hidden = hidden + "_";
         }
 
         return hidden;

@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
+
+
 class Program
 {
     static void Main(string[] args)
@@ -12,15 +10,44 @@ class Program
 
         static void Menu()
         {
+            string book;
+            int chapter;
+            int firstVerse;
+            int lastVerse;
+            Scripture scripture;
+
             Console.WriteLine("What Scripture would you like to memorize? (Press Enter for a Stock Scripture)");
-            Console.Write("Book: ");
-            string book = Console.ReadLine();
+            Console.Write("Book(Example: '2 Nephi'): ");
+            book = Console.ReadLine();
 
             if (book == "")
             {
-                Scripture scripture = new Scripture();
-                scripture.Display();
+                scripture = new Scripture();
             }
+            else
+            {
+                Console.Write("Chapter: ");
+                chapter = int.Parse(Console.ReadLine());
+                Console.Write("FirstVerse: ");
+                firstVerse = int.Parse(Console.ReadLine());
+                Console.Write("Last Verse: ");
+                lastVerse = int.Parse(Console.ReadLine());
+                if (firstVerse == lastVerse)
+                {
+                    lastVerse = 0;
+                }
+                scripture = new Scripture(book, chapter, firstVerse, lastVerse);
+            }
+
+            while (scripture._randoms.Count < scripture._words.Count)
+            {
+                scripture.Display();
+                Console.ReadKey();
+                scripture.RandomBlank();
+            }
+            scripture.Display();
+            Console.ReadKey();
+
         }
         Menu();
 

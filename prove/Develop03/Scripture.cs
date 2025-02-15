@@ -1,29 +1,24 @@
 public class Scripture
 {
-    List<ScriptureWord> _words = new List<ScriptureWord>();
+    public List<ScriptureWord> _words = new List<ScriptureWord>();
 
-    List<int> _randoms = new List<int>();
+    public List<int> _randoms = new List<int>();
     string _ogText;
 
     string _reference;
 
     public Scripture()
     {
-        _ogText = "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.";
-        _reference = "Proverbs 3:5-6";
+        Reference scripture = new Reference();
+        _ogText = scripture.GetText();
+        _reference = scripture.GetReference();
         GetWords();
     }
     public Scripture(string book, int chapter, int firstVerse, int lastVerse = 0)
     {
-        string end = "";
-        if (lastVerse != 0)
-        {
-            end = $"-{lastVerse}";
-        }
-        _reference = $"{book} {chapter}:{firstVerse}{end}";
-
-        Reference scripture = new Reference(_reference);
+        Reference scripture = new Reference(book, chapter, firstVerse, lastVerse);
         _ogText = scripture.GetText();
+        _reference = scripture.GetReference();
         GetWords();
     }
 
@@ -44,10 +39,28 @@ public class Scripture
     }
     public void RandomBlank()
     {
-
+        Random r = new Random();
+        for (int i = 0; i < 3; i++)
+        {
+            int randInt1 = r.Next(0, _words.Count);
+            if (_randoms.Contains(randInt1))
+            {
+                i--;
+            }
+            else
+            {
+                _randoms.Add(randInt1);
+            }
+            if (_randoms.Count == _words.Count)
+            {
+                i = 3;
+            }
+        }
     }
     public void Display()
     {
+        Console.Clear();
+        Console.WriteLine(_reference);
         foreach (ScriptureWord word in _words)
         {
             if (!_randoms.Contains(word.GetIndex()))
