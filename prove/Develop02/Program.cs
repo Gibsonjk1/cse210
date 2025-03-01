@@ -25,8 +25,11 @@ class Program
                 switch (selection)
                 {
                     case 1:
-                        string[] response = Prompt.Decide();
-                        Journal.Save(response);
+                        Entry response = Prompt.Decide();
+                        if (response != null)
+                        {
+                            Journal.Save(response);
+                        }
                         break;
                     case 2:
                         Journal.Display();
