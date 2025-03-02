@@ -19,6 +19,8 @@ public class Meditation : Mindfulness
         Console.WriteLine("Press Enter when you're Ready: ");
         Console.ReadKey();
         MeditationAnimation();
+        base.EndingMessage();
+        Console.WriteLine();
     }
     private void MeditationAnimation()
     {
