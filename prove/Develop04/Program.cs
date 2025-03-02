@@ -17,7 +17,7 @@ class Program
                 Console.WriteLine("1. The Breathing Activity");
                 Console.WriteLine("2. The Reflection Activity");
                 Console.WriteLine("3. The Listing Activity");
-                Console.WriteLine("4. Meditation Activity");
+                Console.WriteLine("4. The Meditation Activity");
                 Console.Write(">");
                 int choice = int.Parse(Console.ReadLine());
 
