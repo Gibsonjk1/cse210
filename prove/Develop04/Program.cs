@@ -17,6 +17,7 @@ class Program
                 Console.WriteLine("1. The Breathing Activity");
                 Console.WriteLine("2. The Reflection Activity");
                 Console.WriteLine("3. The Listing Activity");
+                Console.WriteLine("4. Meditation Activity");
                 Console.Write(">");
                 int choice = int.Parse(Console.ReadLine());
 
@@ -39,6 +40,12 @@ class Program
 
                         Listing listing = new Listing(activityName);
                         listing.ListingActivity();
+                        break;
+                    case 4:
+                        activityName = "Meditation";
+
+                        Meditation meditation = new Meditation(activityName);
+                        meditation.MeditationActivity();
                         break;
 
                 }
