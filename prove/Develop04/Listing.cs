@@ -11,7 +11,7 @@ public class Listing : Mindfulness
 "When have you felt the Holy Ghost this month?",
 "Who are some of your personal heroes?"
     ];
-    private List<string> _list;
+    private List<string> _list = new List<string>();
     private int _timer;
     private int _count;
 
@@ -48,7 +48,7 @@ public class Listing : Mindfulness
         DateTime currentTime = DateTime.Now;
         DateTime endingTime = currentTime.AddSeconds(timer);
 
-        while (currentTime > endingTime)
+        while (currentTime < endingTime)
         {
             Console.Write(">");
             string response = Console.ReadLine();
