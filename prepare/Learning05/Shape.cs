@@ -4,7 +4,7 @@ public class Shape
 
     public Shape(string color)
     {
-
+        _color = color;
     }
     public string GetColor()
     {
