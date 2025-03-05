@@ -19,6 +19,8 @@ public class Meditation : Mindfulness
         Console.WriteLine("Press Enter when you're Ready: ");
         Console.ReadKey();
         MeditationAnimation();
+        base.EndingMessage();
+        Console.WriteLine();
     }
     private void MeditationAnimation()
     {
@@ -26,29 +28,33 @@ public class Meditation : Mindfulness
         DateTime futureTime = currentTime.AddSeconds(_timer);
         while (currentTime < futureTime)
         {
-            Console.SetCursorPosition(10, 10);
+            Console.Clear();
+            Console.SetCursorPosition(10, 5);
             Console.Write("*");
             Thread.Sleep(300);
 
-            Console.SetCursorPosition(9, 9);
+            Console.SetCursorPosition(9, 4);
             Console.Write("***");
-            Console.SetCursorPosition(10, 9);
+            Console.SetCursorPosition(9, 5);
             Console.Write("* *");
-            Console.SetCursorPosition(11, 9);
+            Console.SetCursorPosition(9, 6);
             Console.Write("***");
             Thread.Sleep(300);
 
-            Console.SetCursorPosition(8, 8);
+            Console.SetCursorPosition(8, 3);
             Console.Write("*****");
-            Console.SetCursorPosition(9, 8);
+            Console.SetCursorPosition(8, 4);
             Console.Write("*   *");
-            Console.SetCursorPosition(10, 8);
+            Console.SetCursorPosition(8, 5);
             Console.Write("*   *");
-            Console.SetCursorPosition(11, 8);
+            Console.SetCursorPosition(8, 6);
             Console.Write("*   *");
-            Console.SetCursorPosition(12, 8);
+            Console.SetCursorPosition(8, 7);
             Console.Write("*****");
             Thread.Sleep(300);
+
+            currentTime = DateTime.Now;
         }
+        Console.Clear();
     }
 }
