@@ -1,0 +1,5 @@
+120
+ChecklistGoal~|~poo~|~shar~|~10~|~100~|~2~|~2
+SimpleGoal~|~Sleep~|~Sleep 8 hours per night~|~10~|~True
+EternalGoal~|~Read Scriptures~|~Just Do It~|~25
+SimpleGoal~|~fish~|~eat fish~|~0~|~False

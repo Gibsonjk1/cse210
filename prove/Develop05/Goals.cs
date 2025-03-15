@@ -28,4 +28,6 @@ public abstract class Goals
     public abstract string FormatGoal();
     public abstract void LoadGoal(string[] data);
     public abstract void RecordEvent();
+
+    public abstract string IsComplete();
 }

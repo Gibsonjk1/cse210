@@ -1,7 +1,9 @@
+using System.Reflection.PortableExecutable;
+
 public class GoalProcessor
 {
     public static List<Goals> _goalList = new List<Goals>();
-    public int _score;
+    public static int _score;
 
     public static void Save(Goals entry)
     {
@@ -35,6 +37,9 @@ public class GoalProcessor
                     checklistGoal.LoadGoal(entry);
                     Save(checklistGoal);
                     break;
+                default:
+                    _score = int.Parse(entry[0]);
+                    break;
             }
 
             //Save(entry);
@@ -49,6 +54,7 @@ public class GoalProcessor
 
         using (StreamWriter outputFile = new StreamWriter($"files/{fileName}"))
         {
+            outputFile.WriteLine(_score);
             foreach (Goals goal in _goalList)
             {
                 string line = goal.FormatGoal();
@@ -62,18 +68,28 @@ public class GoalProcessor
     public void RecordEvent()
     {
         int index = 0;
+        Console.WriteLine();
         foreach (Goals goal in _goalList)
         {
             index++;
-            Console.Write(index);
+            Console.Write($"{index}. ");
             goal.DisplayTitle();
         }
+        Console.WriteLine();
         Console.WriteLine("Which goal did you accomplish?: ");
         int choice = int.Parse(Console.ReadLine());
+        _goalList[choice - 1].RecordEvent();
         int addToScore = _goalList[choice - 1].AddScore();
         _score = _score + addToScore;
-        _goalList[choice - 1].RecordEvent();
         Console.WriteLine($"Congratulations! You have earned {addToScore} points!");
         Console.WriteLine($"You now have {_score} points.");
+    }
+
+    public void GetLevel()
+    {
+        int level = _score / 100;
+        Console.WriteLine(Character.GetLevel(level));
+        Console.WriteLine(Character.GetCharacter(level));
+
     }
 }
