@@ -4,7 +4,7 @@ public class ChecklistGoal : Goals
 {
     int _goalCount;
     int _goalEnd;
-    public ChecklistGoal() : base("ChecklisteGoal")
+    public ChecklistGoal() : base("ChecklistGoal")
     {
 
     }
@@ -43,7 +43,7 @@ public class ChecklistGoal : Goals
     public override int AddScore()
     {
         int scoreAdd = 0;
-        if (_goalEnd % _goalCount == 0)
+        if (_goalEnd == _goalCount)
         {
             scoreAdd = _goalBonus;
         }
@@ -57,5 +57,15 @@ public class ChecklistGoal : Goals
     public override void RecordEvent()
     {
         _goalCount++;
+    }
+
+    public override string IsComplete()
+    {
+        string isComplete = "[ ]";
+        if (_goalCount == _goalEnd)
+        {
+            isComplete = "[X]";
+        }
+        return isComplete;
     }
 }

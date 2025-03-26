@@ -33,4 +33,10 @@ public class EternalGoal : Goals
     {
         Console.WriteLine("Good job! Keep Going!");
     }
+
+    public override string IsComplete()
+    {
+        string isComplete = "[-]";
+        return isComplete;
+    }
 }

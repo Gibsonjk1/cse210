@@ -13,8 +13,8 @@ public class SimpleGoal : Goals
         _goalTitle = Console.ReadLine();
         Console.WriteLine("Describe your Goal: ");
         _goalDesc = Console.ReadLine();
-        Console.WriteLine("How many bonus points do you get when you're done?");
-        _goalBonus = int.Parse(Console.ReadLine());
+        Console.WriteLine("How many points do you get when you're done?");
+        _goalValue = int.Parse(Console.ReadLine());
         Console.WriteLine("Your goal has been set!");
     }
 
@@ -36,5 +36,14 @@ public class SimpleGoal : Goals
     public override void RecordEvent()
     {
         _goalComplete = true;
+    }
+    public override string IsComplete()
+    {
+        string isComplete = "[ ]";
+        if (_goalComplete == true)
+        {
+            isComplete = "[X]";
+        }
+        return isComplete;
     }
 }
