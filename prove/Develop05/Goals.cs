@@ -4,7 +4,7 @@ public abstract class Goals
     protected string _goalType;
     protected string _goalDesc;
     protected int _goalValue;
-    protected int _goalBonus = 0;
+    protected int _goalBonus;
 
     public Goals(string goalType)
     {
@@ -12,10 +12,6 @@ public abstract class Goals
         _goalType = goalType;
     }
 
-    public void DisplayScore()
-    {
-
-    }
     public void DisplayTitle()
     {
         Console.WriteLine(_goalTitle);
