@@ -34,6 +34,11 @@ class Program
             _videos.Add(video2);
             _videos.Add(video3);
             _videos.Add(video4);
+
+            foreach (Video video in _videos)
+            {
+                video.DisplayVideoContent();
+            }
         }
         CreateVideos();
     }
