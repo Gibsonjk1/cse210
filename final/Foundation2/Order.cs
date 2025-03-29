@@ -31,7 +31,7 @@ public class Order
     public string ShippingLabel()
     {
         string shipping = "";
-        shipping += $"{_customer.GetName()}, ";
+        shipping += $"{_customer.GetName()}, \n";
         shipping += _customer.GetAddress();
         return shipping;
     }

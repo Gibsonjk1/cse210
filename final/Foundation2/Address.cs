@@ -12,7 +12,7 @@ public class Address
 
     public bool IsUSAddress()
     {
-        if (_country == "UnitedStates")
+        if (_country == "United States")
         { return true; }
         else
         {

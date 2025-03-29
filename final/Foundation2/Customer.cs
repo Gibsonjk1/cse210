@@ -27,7 +27,6 @@ public class Customer
 
     public void SetAddress(string street, string city, string state, string country)
     {
-        Address address = new Address();
-        address.SetAddress(street, city, state, country);
+        _address.SetAddress(street, city, state, country);
     }
 }
