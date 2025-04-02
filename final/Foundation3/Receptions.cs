@@ -1,14 +1,38 @@
-public class Receptions
+public class Receptions : Event
 {
-    private List<string> _guestList;
+    private List<string> _guestList = new List<string>();
+    private string _rsvp;
 
-    public Receptions()
+    public Receptions(string title, string date, string time, string email, List<string> guestlist = null) : base(title, date, time)
     {
-
+        _rsvp = email;
+        if (guestlist is not null)
+        {
+            _guestList = guestlist;
+        }
     }
 
     public List<string> GetGuestList()
     {
+        return _guestList;
+    }
 
+    public void AddGuest(string guest)
+    {
+        _guestList.Add(guest);
+    }
+    public void FullDetails()
+    {
+        Console.WriteLine("Event Type: Reception");
+        Console.WriteLine($"{_title}\n{_description}\n{_date} - {_time}\n{_address}");
+        Console.WriteLine();
+        Console.WriteLine($"RSVP: {_rsvp}");
+
+    }
+
+    public void ShortDescription()
+    {
+        Console.WriteLine("Event Type: Reception");
+        Console.WriteLine($"{_title}\n{_date}");
     }
 }
