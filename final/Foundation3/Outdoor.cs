@@ -18,8 +18,10 @@ public class Outdoor : Event
     }
     public void FullDetails()
     {
+        Console.WriteLine();
+        Console.WriteLine("Full Details: ");
         Console.WriteLine("Event Type: Outdoor");
-        Console.WriteLine($"{_title}\n{_description}\n{_date} - {_time}\n{_address}");
+        Console.WriteLine($"{_title}\n{_description}\n{_date} - {_time}\n{_address.GetAddress()}");
         Console.WriteLine();
         Console.WriteLine($"Expected Weather: {_weather}");
         Console.WriteLine();
@@ -28,6 +30,8 @@ public class Outdoor : Event
 
     public void ShortDescription()
     {
+        Console.WriteLine();
+        Console.WriteLine("Short Description: ");
         Console.WriteLine("Event Type: Outdoor");
         Console.WriteLine($"{_title}\n{_date}");
         Console.WriteLine();

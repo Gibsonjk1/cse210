@@ -20,7 +20,9 @@ public class Event
 
     public void StandardDetails()
     {
-        Console.WriteLine($"{_title}\n{_description}\n{_date} - {_time}\n{_address}");
+        Console.WriteLine();
+        Console.WriteLine("Standard Details: ");
+        Console.WriteLine($"{_title}\n{_description}\n{_date} - {_time}\n{_address.GetAddress()}");
         Console.WriteLine();
     }
 

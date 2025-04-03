@@ -23,8 +23,10 @@ public class Receptions : Event
     }
     public void FullDetails()
     {
+        Console.WriteLine();
+        Console.WriteLine("Full Details: ");
         Console.WriteLine("Event Type: Reception");
-        Console.WriteLine($"{_title}\n{_description}\n{_date} - {_time}\n{_address}");
+        Console.WriteLine($"{_title}\n{_description}\n{_date} - {_time}\n{_address.GetAddress()}");
         Console.WriteLine();
         Console.WriteLine($"RSVP: {_rsvp}");
 
@@ -32,6 +34,8 @@ public class Receptions : Event
 
     public void ShortDescription()
     {
+        Console.WriteLine();
+        Console.WriteLine("Short Description: ");
         Console.WriteLine("Event Type: Reception");
         Console.WriteLine($"{_title}\n{_date}");
     }

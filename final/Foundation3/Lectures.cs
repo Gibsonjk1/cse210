@@ -20,8 +20,10 @@ public class Lectures : Event
     }
     public void FullDetails()
     {
+        Console.WriteLine();
+        Console.WriteLine("Full Details: ");
         Console.WriteLine("Event Type: Lecture");
-        Console.WriteLine($"{_title}\n{_description}\n{_date} - {_time}\n{_address}");
+        Console.WriteLine($"Title: {_title}\nDescription: {_description}\n{_date} - {_time}\n{_address.GetAddress()}");
         Console.WriteLine($"Speaker: {_speaker}");
         Console.WriteLine($"Capacity: {_capacity}");
 
@@ -29,6 +31,8 @@ public class Lectures : Event
 
     public void ShortDescription()
     {
+        Console.WriteLine();
+        Console.WriteLine("Short Description: ");
         Console.WriteLine("Event Type: Lecture");
         Console.WriteLine($"{_title}\n{_date}");
     }
