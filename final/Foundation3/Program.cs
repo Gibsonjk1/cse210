@@ -1,5 +1,7 @@
 using System;
-
+//In this Foundation project, I chose not to use Polymorphism, although it was
+//clearly the best choice because I thought it was important to showcase inheritance
+//and save polymorphism for Foundation 4.
 class Program
 {
     static void Main(string[] args)

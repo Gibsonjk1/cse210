@@ -1,11 +1,12 @@
-public class Activity
+public abstract class Activity
 {
     private DateTime _date;
     private int _length;
 
-    public Activity()
+    public Activity(DateTime date, int length)
     {
-
+        _date = date;
+        _length = length;
     }
 
     public virtual int Distance()
@@ -23,8 +24,5 @@ public class Activity
 
     }
 
-    public string Summary()
-    {
-        
-    }
+    public abstract void Summary();
 }
