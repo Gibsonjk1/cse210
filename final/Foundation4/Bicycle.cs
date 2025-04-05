@@ -2,30 +2,15 @@ using System.Data.Common;
 
 public class Bicycle : Activity
 {
-    private int _speed;
+    private decimal _speed;
 
-    public Bicycle(DateTime date, int length, int speed) : base(date, length)
+    public Bicycle(DateTime date, decimal length, decimal speed) : base(date, length, "Bicycle")
     {
         _speed = speed;
     }
 
-    public override int Distance()
+    public override decimal Speed()
     {
-
-    }
-
-    public override int Speed()
-    {
-
-    }
-
-    public override int Pace()
-    {
-
-    }
-
-    public override void Summary()
-    {
-        Console.Write(_date.ToString("dd:MMM:yyyy"));
+        return _speed;
     }
 }

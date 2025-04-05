@@ -1,24 +1,14 @@
 public class Running : Activity
 {
-    private int _distance;
+    private decimal _distance;
 
-    public Running()
+    public Running(DateTime date, decimal length, decimal distance) : base(date, length, "Running")
     {
-
+        _distance = distance;
     }
 
-    public override int Distance()
+    public override decimal Distance()
     {
-
-    }
-
-    public override int Speed()
-    {
-
-    }
-
-    public override int Pace()
-    {
-        
+        return _distance;
     }
 }
